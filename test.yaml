@@ -1,0 +1,77 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+      - name: Appdome build-2secure
+        uses: Appdome/github_build-2secure@latest
+        with:
+          # Appdome API key
+          APPDOME_API_TOKEN: # default is None
+          # APK file
+          APP_FILE: # default is None
+          # Appdome FusionSetId iOS/Android
+          FUSION_SET_ID: # default is None
+          # iOS/Android Signin option
+          SIGN_OPTIONS: 
+          # Keystore sign file
+          KEYSTORE_FILE: # optional, default is None
+          # iOS sign file
+          MOBILE_PROVISION_PROFILE_FILE: # optional, default is None
+          # iOS sign file
+          ENTITLEMENTS_FILE: # optional, default is None
+          # Keystore password sign file
+          KEYSTORE_PASSWORD: # optional, default is None
+          # keystore alias
+          KEYSTORE_ALIAS: # optional, default is None
+          # keystore key password
+          KEYSTORE_KEY_PASSWORD: # optional, default is None
+          # signing sha1 fingerprint
+          SIGN_FINGERPRINT: # optional, default is None
+          # Google Play App Signing program
+          GOOGLE-PLAY-SIGNING: # optional, default is false
+          # Google Play App Signing program
+          GOOGLE_PLAY_SIGNING: # optional, default is false
+          # Certificate sign file
+          CERTIFICATE_FILE: # optional, default is None
+          # Certificate password sign file
+          CERTIFICATE_PASSWORD: # optional, default is None
+          # your team-id
+          TEAM-ID: # optional, default is None
+          # your team-id
+          TEAM_ID: # optional, default is None
+          # whether build with logs or not
+          BUILD_WITH_LOGS: # optional
+          # Should there be a second universal apk output (for aab apps)?
+          SECOND_OUTPUT: # optional
+          # Specify a name for the output app (without the extension)
+          OUTPUT_APP_NAME: # optional, default is None
+          # Build to test option (e.g., bitbar, browserstack, lambdatest, saucelabs, aws_device_farm, perfecto, tosca, firebase, kobiton katalon)
+          BUILD_TO_TEST: # optional, default is None
+          # App ID in Firebase project (required for Crashlytics)
+          FIREBASE_APP_ID: # optional, default is None
+          # Data Dog API_KEY (required for DataDog Deobfuscation)
+          DATADOG_API_KEY: # optional, default is None
+                
